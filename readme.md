@@ -6,11 +6,11 @@ First, pull in the package through Composer.
 
 ```js
 "require": {
-    "laracasts/flash": "~1.3"
+    "laracasts/flash": "~1.0"
 }
 ```
 
-And then, if using Laravel 5, include the service provider within `app/config/app.php`.
+And then, if using Laravel, include the service provider within `app/config/app.php`.
 
 ```php
 'providers' => [
@@ -47,30 +47,10 @@ You may also do:
 - `Flash::warning('Message')`
 - `Flash::overlay('Modal Message', 'Modal Title')`
 
-Again, if using Laravel, this will set a few keys in the session:
+Again, if using Laravel, this will set three keys in the session:
 
 - 'flash_notification.message' - The message you're flashing
 - 'flash_notification.level' - A string that represents the type of notification (good for applying HTML class names)
-
-Alternatively, again, if you're using Laravel, you may reference the `flash()` helper function, instead of the facade. Here's an example:
-
-```
-/**
- * Destroy the user's session (logout).
- *
- * @return Response
- */
-public function destroy()
-{
-    Auth::logout();
-
-    flash()->success('You have been logged out.');
-
-    return home();
-}
-```
-
-Or, for a general information flash, just do: `flash('Some message');`.
 
 With this message flashed to the session, you may now display it in your view(s). Maybe something like:
 
@@ -125,7 +105,7 @@ Because flash messages and overlays are so common, if you want, you may use (or 
 If you need to modify the flash message partials, you can run:
 
 ```bash
-php artisan vendor:publish
+php artisan view:publish laracasts/flash
 ```
 
 The two package views will now be located in the `app/views/packages/laracasts/flash/' directory.
@@ -139,7 +119,7 @@ return Redirect::home();
 ![https://dl.dropboxusercontent.com/u/774859/GitHub-Repos/flash/message.png](https://dl.dropboxusercontent.com/u/774859/GitHub-Repos/flash/message.png)
 
 ```php
-Flash::error('Sorry! Please try again.');
+Flash::error('Sorry Please try again.');
 
 return Redirect::home();
 ```

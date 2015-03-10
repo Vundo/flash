@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/support": "~5.0"
+        "illuminate/support": "~4.0"
     },
     "require-dev": {
         "mockery/mockery": "dev-master"
@@ -18,10 +18,7 @@
     "autoload": {
         "psr-0": {
             "Laracasts\\Flash": "src/"
-        },
-        "files": [
-            "src/Laracasts/Flash/functions.php"
-        ]
+        }
     },
     "minimum-stability": "stable"
 }
